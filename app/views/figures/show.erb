@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <b>Name:</b>
+    <%= @figure.name %>
+    <br />
+    <% @figure.landmarks.each do |landmark|%>
+    <%= landmark.name %>
+    <% end %>
+    <br />
+    <% @figure.titles.each do |title|%>
+    <%= title.name %>
+    <% end %>
+  </tr>
+</table>
+
+<form method="post" action="/figures/<%= @figure.id %>">
+  <input type="hidden" name="_method" value="delete" />
+  <input type="submit" value="Delete Figure" />
+</form>
