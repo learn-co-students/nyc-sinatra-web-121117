@@ -1,0 +1,25 @@
+<h1>Landmark</h1>
+<form action='/landmarks' method="post">
+  <input type="text" name="landmark[name]" id="landmark_name" placeholder="Name"/>
+  <input type="number" name="landmark[year_completed]" id="landmark_year_completed" placeholder="Year Completed"/>
+  <input type="submit" id="submit" value="submit"/>
+  <h2>Figures</h2>
+  <% @figures.each do |figure| %>
+    <p>
+      <input type="radio" id="<%= figure.id %>" name="landmark[figure]" value="<%= figure.name %>">
+      <label for="<%= figure.id %>"><%= figure.name %></label>
+    </p>
+  <% end %>
+  <input type="radio" id="new" name="landmark[figure]" />
+  <label for="new"><input type="text" name="landmark[figure]" placeholder="New Figure"/></label>
+  <h2>Titles</h2>
+  <% @titles.each do |title| %>
+    <p>
+      <input type="checkbox" id="<%= title.id %>" name="landmark[title]" value="<%= title.name %>" />
+      <label for="<%= title.id %>"><%= title.name %></label>
+    </p>
+  <% end %>
+  <input type="checkbox" id="new" name="landmark[title]" />
+  <label for="new"><input type="text" name="landmark[title]" placeholder="New Title" /></label>
+  <input type="submit" id="submit" value="submit"/>
+</form>
