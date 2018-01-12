@@ -1,5 +1,8 @@
+<h1>Edit <%= @figure.name %> below:</h1>
+
 <form action="/figures/<%=@figure.id%>" method="post">
   <input type="hidden" name="_method" value="patch"/>
+  <label>Edit Name Here:</label>
   <input type="text" name="figure[name]" id="figure_name" value="<%=@figure.name%>">
 
   <br></br>
@@ -17,8 +20,8 @@
   <label>and/or, create a new Landmark:</label>
   <br></br>
   <label>name:</label>
-    <input  type="text" name="landmark[name]" id="landmark_name"></input>
-    <input  type="text" name="landmark[year_completed]" id="year_completed"></input>
+    <input  type="text" name="landmark[name]" placeholder="Landmark Name" id="landmark_name"></input>
+    <input  type="text" name="landmark[year_completed]" placeholder="Year Completed" id="year_completed"></input>
   <br></br>
 
   <label>Choose an existing Title:</label>
@@ -34,14 +37,17 @@
   <label>and/or, create a new Title:</label>
   <br></br>
   <label>name:</label>
-    <input  type="text" name="title[name]" id="title_name"></input>
+    <input  type="text" name="title[name]" placeholder="Title" id="title_name"></input>
 
   <br></br>
 
-  <input type="submit" value="Update Figures">
+  <input type="submit" value="Update Figure">
 </form>
 
+<br></br>
+
+<h3>Or Delete <%= @figure.name %> by clicking here:</h3>
 <form action="/figures/<%=@figure.id%>" method="post">
     <input type="hidden" name="_method" value="delete"/>
-    <input type="submit" value="delete">
+    <input type="submit" value="Delete Figure">
 </form>
