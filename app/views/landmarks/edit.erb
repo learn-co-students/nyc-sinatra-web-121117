@@ -1,0 +1,34 @@
+<form action="/landmarks/<%= @landmark.id %>" method="post">
+  <input type="hidden" name="_method" value="patch"/>
+  <input type="text" name="landmark[name]" value="<%= @landmark.name %>"/>
+  <input type="number" name="landmark[year_completed]" value="<%= @landmark.year_completed %>"/>
+
+  <h2>Figures</h2>
+  <% @figures.each do |figure| %>
+    <p>
+      <input type="radio" id="<%= figure.id %>" name="landmark[figure]" value="<%= figure.name %>"
+      <%='checked' if @landmark_figure == figure %>>
+      <label for="<%= figure.id %>"><%= figure.name %></label>
+    </p>
+  <% end %>
+  <input type="radio" id="new" name="landmark[figure]" />
+  <label for="new"><input type="text" name="landmark[figure]" placeholder="New Figure"/></label>
+  <h2>Titles</h2>
+  <% @titles.each do |title| %>
+    <p>
+      <input type="checkbox" id="<%= title.id %>" name="landmark[title]" value="<%= title.name %>" />
+      <label for="<%= title.id %>"><%= title.name %></label>
+    </p>
+  <% end %>
+  <input type="checkbox" id="new" name="landmark[title]" />
+  <label for="new"><input type="text" name="landmark[title]" placeholder="New Title" /></label>
+  <input type="submit" id="submit" value="edit"/>
+</form>
+
+</form>
+
+
+<form action="/landmarks/<%= @landmark.id %>" method="post">
+  <input type="hidden" name="_method" value="delete"/>
+  <input type="submit" value="delete"/>
+</form>
