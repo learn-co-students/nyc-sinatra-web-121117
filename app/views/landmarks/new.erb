@@ -1,0 +1,12 @@
+<form action="/landmarks" method="post">
+  <input type="text" name="name" placeholder="Landmark Name"/>
+  <input type="integer" name="year_completed" placeholder="Year Completed"/>
+  <div>
+  <p>If there is a Figure attached to this Landmark, choose from below:</p>
+    <% @figures.each do |figure| %>
+      <input type="radio" id="<%= figure.id %>" name="figure_id" value="<%= figure.id %>" />
+      <label for="<%= figure.id %>"><%= figure.name %></label>
+    <% end %>
+  </div>
+  <input type="submit" value="Submit">
+</form>
